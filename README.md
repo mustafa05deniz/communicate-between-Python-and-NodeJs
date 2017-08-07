@@ -23,11 +23,7 @@ module.exports = {
 
 <h4>click localhost:300/signup</h4>
 <pre>
-app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/login',
-        failureRedirect: '/signup',
-        failureFlash : true 
-}));
+
 </pre>
 <h4>sign up </h4>
 <pre>
