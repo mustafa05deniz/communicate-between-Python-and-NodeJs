@@ -15,6 +15,7 @@ module.exports = {
 };
 </pre>
 
+
 <h2>Python Code</h2>
 <pre>
 import socket
@@ -24,7 +25,6 @@ import datetime
 import sys
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
 server_address = ('nodejserver', 4545)
 print >>sys.stderr, 'connecting to %s port %s' % server_address
 sock.connect(server_address)
