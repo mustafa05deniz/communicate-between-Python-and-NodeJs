@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>app.kodizim.com</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/public/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+  <script src="http://207.154.209.232:3000/socket.io/socket.io.js"></script>
+
+
+
+</head>
+
+<body>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var socket = io.connect("http://127.0.0.1:3001"); // 3000 portuna connect olduk 
+
+            console.log(socket);
+   
+            
+     
+            $("#yazismalar").empty();
+            socket.on("deneme", function(data){ //Server.js deki socket.emitten mesaj'ı client'imize socket.on(mesajgitti) ile aldık.
+                console.log(data);
+                
+                $("#yazismalar").append("<div class='gelenmesaj'> date : "+data[1]+"</div>"); // aldığımız datayı(mesaj ve nicki) append ile #yazismalar divinin içerisine li olarak ekledik.
+
+            });
+
+        
+    });
+</script>
+    <br><br><br>
+<div class="container">
+
+    <div class="jumbotron">
+         <div id="yazismalar">
+    </div>
+      </div>
+   
+
+</div>
+
+
+
+
+    <!-- jQuery -->
+    <script src="public/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="public/js/bootstrap.min.js"></script>
+
+
+
+</body>
+
+</html>
