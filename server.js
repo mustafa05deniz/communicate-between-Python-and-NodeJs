@@ -11,7 +11,7 @@ var port     = process.env.PORT || 80;
 var flash    = require('connect-flash');
 
 
-var io = require('socket.io').listen(3001); 
+var io = require('socket.io').listen(3000); 
 var net = require('net');
 var JsonSocket = require('json-socket');
 var port1 = 4545;
