@@ -53,7 +53,7 @@ app.use(express.static(__dirname + '/views'));
 app.set('view engine', 'ejs'); 
 
 app.use(session({
-    secret: 'vidyapathaisalwaysrunning',
+    secret: 'kodizimcom',
     resave: true,
     saveUninitialized: true
  } )); 
