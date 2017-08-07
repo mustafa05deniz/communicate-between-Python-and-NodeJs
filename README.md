@@ -15,13 +15,64 @@ module.exports = {
 };
 </pre>
 
+<h2>Python Code</h2>
+<pre>
+import socket
+import sys
+import time
+import datetime
+import sys
 
-<pre>npm install </pre>
-<pre>node server.js</pre>
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+server_address = ('nodejserver', 4545)
+print >>sys.stderr, 'connecting to %s port %s' % server_address
+sock.connect(server_address)
+sock.sendall("start")
+while True:
+    veri="deneme"
+    veriler = ("%s,%s"%(veri,str(datetime.datetime.now())))
+ 
+    print(veriler)
+    sock.sendall(veriler)
+
+    time.sleep(5)
+    
+</pre>
+<h2>Nodejs codes</h2>
+<pre>
+var net = require('net');
+var JsonSocket = require('json-socket');
+var port1 = 4545;
+var server = net.createServer();
+
+server.listen(port1);
+server.on('connection', function(socket) {
+    liste=[];
+    object={};
+    liste.push(socket.remoteAddress);
+    console.log(liste);
+    socket = new JsonSocket(socket);
+    var n;
+    var isRunning = false;
+    var streatTimeout;
+    
+    socket.on('data', function(data) {
+        var str= data.toString();
+        console.log("veri : "+data.toString());    
+        var array = str.split(',');
+        console.log(array);
+        io.emit(array[0],array)
+    });
+
+
+});
+
+</pre>
 
 <h2>How is running</h2>
 
-<h4>click localhost:300/signup</h4>
+<h4></h4>
 <pre>
 
 </pre>
